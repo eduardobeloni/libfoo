@@ -1,0 +1,13 @@
+This small library intents to help programmers on their first steps towards library programming in C.
+As for myself, I can't say I've got experience in the subject, so this is a help for me as well.
+
+Compile:
+$ make
+
+The files lib/libfoo.so and src/foomain will be created.
+
+Then you must set LD_LIBRARY_PATH otherwise you'll get an error:
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`/lib
+
+Finally just run foomain:
+$ ./src/foomain
