@@ -4,10 +4,15 @@ As for myself, I can't say I've got experience in the subject, so this is a help
 Compile:
 $ make
 
-The files lib/libfoo.so and src/foomain will be created.
+The files lib/libfoo.so, lib/libfoo.a, and src/foomain will be created.
 
 Then you must set LD_LIBRARY_PATH otherwise you'll get an error:
 $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`/lib
+
+If you want to compile src/foomain statically linked against libfoo, then you should type:
+$ make STATIC=1
+
+There is no need to set LD_LIBRARY_PATH in this case.
 
 Finally just run foomain:
 $ ./src/foomain
