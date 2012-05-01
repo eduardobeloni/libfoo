@@ -1,7 +1,7 @@
 CC = gcc
 AR = ar
 
-LIBNAME = libfoo
+LIBNAME ?= libfoo
 TARGET = $(LIBNAME).so
 TARGET_ST = $(LIBNAME).a
 

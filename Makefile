@@ -2,7 +2,7 @@ LIBNAME = libfoo
 PREFIX ?= /usr/local
 
 all:
-	$(MAKE) -C ./lib
+	$(MAKE) -C ./lib LIBNAME=$(LIBNAME)
 	$(MAKE) -C ./src
 
 clean:
