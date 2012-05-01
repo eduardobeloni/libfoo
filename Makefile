@@ -1,9 +1,10 @@
 LIBNAME = libfoo
 PREFIX ?= /usr/local
+STATIC ?= 0
 
 all:
 	$(MAKE) -C ./lib LIBNAME=$(LIBNAME)
-	$(MAKE) -C ./src
+	$(MAKE) -C ./src STATIC=$(STATIC)
 
 clean:
 	$(MAKE) -C ./lib clean
