@@ -9,7 +9,7 @@ $(TARGET): $(SRC:.c=.o)
 	$(CC) $(CFLAGS) -shared $< -o $@
 
 %.o: %.c
-	$(CC) $(CFLAGS) -fpic -c $<
+	$(CC) $(CFLAGS) -fpic -c $< -o $@
 
 clean:
 	rm -f *.o *.so
