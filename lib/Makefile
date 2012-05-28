@@ -7,23 +7,22 @@ TARGET_ST = $(LIBNAME).a
 
 CFLAGS = -Wall -Werror
 SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+DEP = (OBJ:.o=.d)
 
 default: $(TARGET) $(TARGET_ST)
 
-$(TARGET): $(SRC:.c=.o)
-	$(CC) $(CFLAGS) -shared $< -o $@
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -shared $^ -o $@
 
-$(TARGET_ST): $(SRC:.c=-st.o)
-	$(AR) rcs $@ $<
+$(TARGET_ST): $(OBJ)
+	$(AR) rcs $@ $^
 
--include $(OBJ:.o=.d)
+-include $(DEP)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -fpic -c $< -o $@
 	$(CC) -MM $(CFLAGS) $< > $*.d
-
-%-st.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f *.o *.so *.a *.d
